@@ -36,7 +36,8 @@ getsteps <- function(date_start, date_end, token){
                date_start, date_end)
   res <- httr::GET(url = u, httr::config(token = token))
   dat <- jsonlite::fromJSON(httr::content(res, as = "text"))
-  return(res)
+  result <- datasteps
+  return(result)
 }
 
 
