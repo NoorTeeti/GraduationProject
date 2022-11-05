@@ -31,12 +31,12 @@ getWeightdata <- function(date_start, date_end, token){
 }
 
 #' @export
-getsteps <- function(date_start, date_end, token){
+getstep <- function(date_start, date_end, token){
   u <- sprintf("https://api.fitbit.com/1/user/-/activities/steps/date/%s/%s.json",
                date_start, date_end)
   res <- httr::GET(url = u, httr::config(token = token))
   dat <- jsonlite::fromJSON(httr::content(res, as = "text"))
-  result <- datasteps
+  result <- dat$steps
   return(result)
 }
 
